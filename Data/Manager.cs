@@ -34,7 +34,7 @@ public class Manager : Staff
     public override void CalculatePay()
     {
         base.CalculatePay();
-        Allowance = 100;
+        Allowance = 1000;
 
         if (HoursWorked > 160)
         {

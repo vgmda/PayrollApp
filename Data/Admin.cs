@@ -24,5 +24,25 @@ public class Admin : Staff
     }
 
     // Methods
+    public override string ToString()
+    {
+        return "Name of Staff = " + NameOfStaff +
+            ", Hourly Rate = " + adminHourlyRate +
+            ", Overtime Rate = " + overtimeRate +
+            ", Total Pay = " + TotalPay;
+    }
+
+    public override void CalculatePay()
+    {
+        base.CalculatePay();
+
+        if (HoursWorked > 160)
+        {
+            Overtime = overtimeRate * (HoursWorked - 160);
+            TotalPay += Overtime;
+        }
+    }
 }
+
+
 

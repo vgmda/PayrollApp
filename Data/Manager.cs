@@ -23,7 +23,6 @@ public class Manager : Staff
     }
 
     // Methods
-
     public override string ToString()
     {
         return "Name of Staff = " + NameOfStaff +

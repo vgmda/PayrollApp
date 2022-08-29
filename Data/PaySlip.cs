@@ -38,19 +38,25 @@ public class PaySlip
 
 
     // Methods
+    public override string ToString()
+    {
+        return "Month: " + month +
+            ", Year: " + year;
+    }
+
     public void GeneratePaySlip(List<Staff> myStaff)
     {
         string path;
 
         foreach (Staff f in myStaff)
         {
-            path = f.NameOfStaff + ".txt";
+            path = @"./" + f.NameOfStaff + ".txt";
 
             // Writing to the file
-            using (StreamWriter sw = new StreamWriter(path, true))
+            using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.WriteLine("PAYSLIP FOR {0} {1}", (MonthsOfYear)month, year);
-                sw.WriteLine("========================");
+                sw.WriteLine("=====================");
                 sw.WriteLine("Name of Staff: {0}", f.NameOfStaff);
                 sw.WriteLine("Hours Worked: {0}", f.HoursWorked);
                 sw.WriteLine("");
@@ -66,9 +72,9 @@ public class PaySlip
                 }
 
                 sw.WriteLine("");
-                sw.WriteLine("========================");
-                sw.WriteLine("Total Pay: {0}", f.TotalPay);
-                sw.WriteLine("========================");
+                sw.WriteLine("=====================");
+                sw.WriteLine("Total Pay: {0:C}", f.TotalPay);
+                sw.WriteLine("=====================");
                 sw.Close();
             }
         }
@@ -82,7 +88,7 @@ public class PaySlip
             orderby staff.NameOfStaff ascending
             select new { staff.NameOfStaff, staff.HoursWorked };
 
-        string path = "summary.txt";
+        string path = @"./summary.txt";
 
         // Writing to the file
         using (StreamWriter sw = new StreamWriter(path, true))
@@ -98,9 +104,9 @@ public class PaySlip
 
             sw.Close();
         }
-
-
     }
+
+
 
 }
 

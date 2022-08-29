@@ -7,15 +7,23 @@ class Program
 {
     private static void Main(string[] args)
     {
-        //Staff s1 = new Staff("Vasile", 5);
-        //Manager m1 = new Manager("Vasile");
-        //Admin a1 = new Admin("Vasile");
+        List<Staff> sList = new List<Staff>();
+        sList.Add(new Staff("Vaso", 20));
+        sList.Add(new Staff("Test", 21));
+        sList.Add(new Staff("Test3", 10));
+        sList.Add(new Staff("Test43", 30));
 
-        //s1.HoursWorked = 200;
-        //m1.HoursWorked = 200;
-        //a1.HoursWorked = 200;
 
-        //s1.CalculatePay();
+
+
+        Manager m1 = new Manager("Vasile");
+        Admin a1 = new Admin("Vasile");
+
+        sList[0].HoursWorked = 200;
+        m1.HoursWorked = 200;
+        a1.HoursWorked = 200;
+
+        sList[0].CalculatePay();
         //m1.CalculatePay();
         //a1.CalculatePay();
 
@@ -27,8 +35,14 @@ class Program
 
         f.ReadFile();
 
-        Console.ReadLine();
+        PaySlip p = new PaySlip(1, 2011);
 
+        p.GeneratePaySlip(sList);
+
+
+
+
+        Console.ReadLine();
 
     }
 }

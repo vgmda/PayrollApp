@@ -10,6 +10,7 @@ namespace PayrollApp.Data;
 public class FileReader
 {
 
+    // Methods
     public List<Staff> ReadFile()
     {
         List<Staff> myStaff = new List<Staff>();

@@ -69,11 +69,38 @@ public class PaySlip
                 sw.WriteLine("========================");
                 sw.WriteLine("Total Pay: {0}", f.TotalPay);
                 sw.WriteLine("========================");
-
                 sw.Close();
             }
-
         }
     }
+
+    public void GenerateSummary(List<Staff> myStaff)
+    {
+        var result =
+            from staff in myStaff
+            where staff.HoursWorked < 10
+            orderby staff.NameOfStaff ascending
+            select new { staff.NameOfStaff, staff.HoursWorked };
+
+        string path = "summary.txt";
+
+        // Writing to the file
+        using (StreamWriter sw = new StreamWriter(path, true))
+        {
+            sw.WriteLine("---------------------------");
+            sw.WriteLine("Staff with less than 10 working hours:");
+            sw.WriteLine("");
+
+            foreach (var f in result)
+            {
+                sw.WriteLine("Name of Staff: {0}, Hours Worked: {1}", f.NameOfStaff, f.HoursWorked);
+            }
+
+            sw.Close();
+        }
+
+
+    }
+
 }
 

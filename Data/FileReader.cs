@@ -34,12 +34,13 @@ public class FileReader
                         m = new Manager(result[0]);
                         myStaff.Add(m);
                     }
-                    if (result[1] == "Admin")
+                    else if (result[1] == "Admin")
                     {
                         Admin a;
                         a = new Admin(result[0]);
                         myStaff.Add(a);
                     }
+
                 }
                 sr.Close();
             }

@@ -91,7 +91,7 @@ public class PaySlip
         string path = @"./summary.txt";
 
         // Writing to the file
-        using (StreamWriter sw = new StreamWriter(path, true))
+        using (StreamWriter sw = new StreamWriter(path))
         {
             sw.WriteLine("---------------------------");
             sw.WriteLine("Staff with less than 10 working hours:");

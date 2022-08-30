@@ -15,6 +15,7 @@ class Program
         FileReader fr = new FileReader();
         int month = 0, year = 0;
 
+        // Input the year
         while (year == 0)
         {
             Console.WriteLine("\nPlease enter the year: ");
@@ -31,6 +32,7 @@ class Program
             }
         }
 
+        // Input the month
         while (month == 0)
         {
             Console.WriteLine("\nPlease enter the month: ");
@@ -54,12 +56,15 @@ class Program
             }
         }
 
+        // Read the file and insert the contents to myStaff list
         myStaff = fr.ReadFile();
 
+        // Loop through myStaff list to set the hours
         for (int i = 0; i < myStaff.Count; i++)
         {
             try
             {
+                // Enter the hours for each staff and calculate its pay + print summary
                 Console.WriteLine("Enter hours worked for {0}", myStaff[i].NameOfStaff);
                 myStaff[i].HoursWorked = Convert.ToInt32(Console.ReadLine());
                 myStaff[i].CalculatePay();
@@ -68,11 +73,13 @@ class Program
             }
             catch (Exception e)
             {
+                // Code to handle the exception
                 Console.WriteLine("You have entered non-numeric characters. Try again");
                 i--;
             }
         }
 
+        // Generate payslips for each member in myStaff list
         PaySlip ps = new PaySlip(month, year);
         ps.GeneratePaySlip(myStaff);
         ps.GenerateSummary(myStaff);

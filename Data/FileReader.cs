@@ -33,12 +33,14 @@ public class FileReader
                         Manager m;
                         m = new Manager(result[0]);
                         myStaff.Add(m);
+                        // myStaff.Add(new Manager(result[0]));
                     }
                     else if (result[1] == "Admin")
                     {
                         Admin a;
                         a = new Admin(result[0]);
                         myStaff.Add(a);
+                        // myStaff.Add(new Admin(result[0]));
                     }
 
                 }

@@ -42,6 +42,13 @@ public class FileReader
                         myStaff.Add(a);
                         // myStaff.Add(new Admin(result[0]));
                     }
+                    else if (result[1] == "Employee")
+                    {
+                        Employee e;
+                        e = new Employee(result[0]);
+                        myStaff.Add(e);
+                        // myStaff.Add(new Employee(result[0]));
+                    }
 
                 }
                 sr.Close();

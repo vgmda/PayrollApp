@@ -94,7 +94,7 @@ public class PaySlip
         using (StreamWriter sw = new StreamWriter(path))
         {
             sw.WriteLine("---------------------------");
-            sw.WriteLine("Staff with less than 10 working hours:");
+            sw.WriteLine("Staff with less than ten working hours:");
             sw.WriteLine("");
 
             foreach (var f in result)

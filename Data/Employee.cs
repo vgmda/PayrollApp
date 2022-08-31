@@ -9,8 +9,37 @@ namespace PayrollApp.Data;
 
 public class Employee : Staff
 {
-    public Employee()
+    // Fields
+    private const float empHourlyRate = 20;
+
+
+    // Properties
+    public int Bonus { get; private set; }
+
+    // Constructor
+    public Employee(string name) : base(name, empHourlyRate)
     {
+        // Call the parent constructor and pass the two parameters (name & managerHourlyRate)
+    }
+
+    // Methods
+    public override string ToString()
+    {
+        return "Name of Staff = " + NameOfStaff +
+            ", Hourly Rate = " + empHourlyRate +
+            ", Allowance = " + Bonus +
+            ", Total Pay = " + TotalPay;
+    }
+
+    public override void CalculatePay()
+    {
+        base.CalculatePay();
+        Bonus = 2000;
+
+        if (HoursWorked == 200)
+        {
+            TotalPay += Bonus;
+        }
     }
 }
 

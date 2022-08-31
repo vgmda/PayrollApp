@@ -106,6 +106,19 @@ public class PaySlip
         }
     }
 
+    public void GenerateBestStaff(List<Staff> myStaff)
+    {
+        var result =
+            from staff in myStaff
+            where staff.HoursWorked > 200
+            orderby staff.NameOfStaff ascending
+            select new { staff.NameOfStaff, staff.HoursWorked };
+
+        string path = @"./summary.txt";
+
+
+    }
+
 
 
 }

@@ -14,7 +14,7 @@ public class Employee : Staff
 
 
     // Properties
-    public int Bonus { get; private set; }
+    public float Bonus { get; private set; } = 200;
 
     // Constructor
     public Employee(string name) : base(name, empHourlyRate)
@@ -34,12 +34,27 @@ public class Employee : Staff
     public override void CalculatePay()
     {
         base.CalculatePay();
-        Bonus = 2000;
 
-        if (HoursWorked == 200)
+        float multiplier = (float)1.2;
+
+        if (HoursWorked > 160 && HoursWorked < 210)
         {
+            Bonus += Bonus * multiplier;
             TotalPay += Bonus;
         }
+        else if (HoursWorked > 210 && HoursWorked < 250)
+        {
+            multiplier += (float)0.5;
+            Bonus += Bonus * multiplier;
+            TotalPay += Bonus;
+        }
+        else if (HoursWorked > 250)
+        {
+            multiplier += (float)1;
+            Bonus += Bonus * multiplier;
+            TotalPay += Bonus;
+        }
+
     }
 }
 
